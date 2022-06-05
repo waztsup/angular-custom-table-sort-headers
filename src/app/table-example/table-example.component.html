@@ -1,0 +1,21 @@
+<h3>Using a table to display the data</h3>
+<table
+  class="table-wrapper"
+  listSort
+  listSortActive="username"
+  listSortDirection="asc"
+  (listSortChange)="sortData($event)"
+>
+  <thead class="row table-header">
+    <th class="col" listSortHeader="username">Username</th>
+    <th class="col" listSortHeader="email">Email</th>
+    <th class="col" listSortHeader="firstName">First name</th>
+    <th class="col" listSortHeader="lastName">Last name</th>
+  </thead>
+  <tr *ngFor="let user of users" class="row">
+    <td class="col">{{ user.username }}</td>
+    <td class="col">{{ user.email }}</td>
+    <td class="col">{{ user.firstName }}</td>
+    <td class="col">{{ user.lastName }}</td>
+  </tr>
+</table>

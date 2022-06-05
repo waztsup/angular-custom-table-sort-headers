@@ -3,12 +3,12 @@ import { BehaviorSubject, Subject } from 'rxjs';
 
 export type SortDirection = 'asc' | 'desc' | '';
 export interface Sort {
-  name: string;
+  active: string;
   direction: 'asc' | 'desc' | '';
 }
 
 @Injectable()
-export class IonListSortService {
+export class ListSortService {
   private sortHeaders: Map<string, string> = new Map<string, string>();
   private directions: SortDirection[] = ['asc', 'desc', ''];
   public active: string;
@@ -21,7 +21,7 @@ export class IonListSortService {
     this.sortState.next({ active: this.active, direction: this.direction });
   }
 
-  setInitialState(active, direction): void {
+  setInitialState(active: string, direction: SortDirection): void {
     this.active = active;
     this.direction = direction;
     this.nextState();

@@ -1,15 +1,3 @@
-<!-- todo: v create directive that accepts & sets default active & direction values -->
-<div class="table-wrapper">
-  <div class="row table-header">
-    <div class="col" ionListSortHeader="username">Username</div>
-    <div class="col" ionListSortHeader="email">Email</div>
-    <div class="col" ionListSortHeader="firstName">First name</div>
-    <div class="col" ionListSortHeader="lastName">Last name</div>
-  </div>
-  <div *ngFor="let user of users" class="row">
-    <div class="col">{{ user.username }}</div>
-    <div class="col">{{ user.email }}</div>
-    <div class="col">{{ user.firstName }}</div>
-    <div class="col">{{ user.lastName }}</div>
-  </div>
-</div>
+<app-divs-example></app-divs-example>
+<hr />
+<app-table-example></app-table-example>

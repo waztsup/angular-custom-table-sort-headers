@@ -1,0 +1,29 @@
+b {
+  padding-right: 16px;
+}
+
+b:hover {
+  cursor: pointer;
+}
+
+b:hover:not(.active) .material-icons:first-child:not(.active) {
+  opacity: 0.5;
+  transition: 0.1s;
+  transform: translateY(-50%);
+}
+
+.material-icons {
+  position: absolute;
+  top: 50%;
+  opacity: 0;
+  font-size: 16px;
+}
+
+.material-icons.active {
+  transform: translateY(-50%);
+  opacity: 1;
+}
+
+.header-icon {
+  position: relative;
+}

@@ -1,0 +1,21 @@
+<h3>Using divs to display data</h3>
+<div
+  class="table-wrapper"
+  listSort
+  listSortActive="username"
+  listSortDirection="asc"
+  (listSortChange)="sortData($event)"
+>
+  <div class="row table-header">
+    <div class="col" listSortHeader="username">Username</div>
+    <div class="col" listSortHeader="email">Email</div>
+    <div class="col" listSortHeader="firstName">First name</div>
+    <div class="col" listSortHeader="lastName">Last name</div>
+  </div>
+  <div *ngFor="let user of users" class="row">
+    <div class="col">{{ user.username }}</div>
+    <div class="col">{{ user.email }}</div>
+    <div class="col">{{ user.firstName }}</div>
+    <div class="col">{{ user.lastName }}</div>
+  </div>
+</div>

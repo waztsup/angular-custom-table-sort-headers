@@ -1,20 +1,20 @@
 import { Component, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { Subject, takeUntil } from 'rxjs';
 import {
-  IonListSortService,
+  ListSortService,
   Sort,
   SortDirection,
-} from './services/ion-list-sort.service';
+} from '../services/list-sort.service';
 
 @Component({
-  selector: '[ionListSortHeader]',
-  templateUrl: './ion-list-sort-header.component.html',
-  styleUrls: ['./ion-list-sort-header.component.css'],
+  selector: '[listSortHeader]',
+  templateUrl: './list-sort-header.component.html',
+  styleUrls: ['./list-sort-header.component.css'],
   host: {
     '(click)': 'handleClick()',
   },
 })
-export class IonListSortHeaderComponent implements OnInit, OnDestroy {
+export class ListSortHeaderComponent implements OnInit, OnDestroy {
   private sort: Sort;
   private name: string;
   private clearSubs: Subject<boolean> = new Subject<boolean>();
@@ -22,14 +22,14 @@ export class IonListSortHeaderComponent implements OnInit, OnDestroy {
   public active: boolean = false;
 
   constructor(
-    private ionListSortService: IonListSortService,
+    private listSortService: ListSortService,
     private elementRef: ElementRef
   ) {}
 
   ngOnInit() {
-    this.name = this.elementRef.nativeElement.getAttribute('ionListSortHeader');
-    this.ionListSortService.register(this.name);
-    this.ionListSortService.sortState
+    this.name = this.elementRef.nativeElement.getAttribute('listSortHeader');
+    this.listSortService.register(this.name);
+    this.listSortService.sortState
       .pipe(takeUntil(this.clearSubs))
       .subscribe((res) => {
         if (res) {
@@ -45,6 +45,6 @@ export class IonListSortHeaderComponent implements OnInit, OnDestroy {
   }
 
   handleClick() {
-    this.ionListSortService.sort(this.name);
+    this.listSortService.sort(this.name);
   }
 }

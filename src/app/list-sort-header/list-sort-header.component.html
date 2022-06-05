@@ -1,0 +1,11 @@
+<b [class.active]="active && dir">
+  <ng-content></ng-content>
+  <span class="header-icon">
+    <span class="material-icons" [class.active]="active && dir === 'asc'">
+      north
+    </span>
+    <span class="material-icons" [class.active]="active && dir === 'desc'">
+      south
+    </span>
+  </span>
+</b>
